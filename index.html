@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloco de Notas do Operador | Ferramenta de monitoramento (demo)</title>
+    <meta name="description"
+        content="Bloco de notas digital para operadores de monitoramento: anotações salvas automaticamente, passagem de turno, mensagens padrão, conversor de coordenadas, alfabeto fonético e código Q. Versão de demonstração com dados fictícios.">
+    <meta name="author" content="Hugo Hendrix">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0c0b17">
+    <link rel="canonical" href="https://hugohendrix.github.io/bloco-de-notas-demo/">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Bloco de Notas do Operador">
+    <meta property="og:url" content="https://hugohendrix.github.io/bloco-de-notas-demo/">
+    <meta property="og:title" content="Bloco de Notas do Operador | Ferramenta de monitoramento (demo)">
+    <meta property="og:description"
+        content="Ferramenta criada na rotina de monitoramento e adotada pela equipe. Anotações, passagem de turno, mensagens padrão, coordenadas, alfabeto fonético e código Q.">
+    <meta property="og:image" content="https://hugohendrix.github.io/bloco-de-notas-demo/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Bloco de Notas do Operador, versão de demonstração">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bloco de Notas do Operador | Ferramenta de monitoramento (demo)">
+    <meta name="twitter:description"
+        content="Anotações, passagem de turno, mensagens padrão, coordenadas, alfabeto fonético e código Q.">
+    <meta name="twitter:image" content="https://hugohendrix.github.io/bloco-de-notas-demo/img/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#hoje">📒 Bloco de Notas <span>do Operador</span></a>
+            <div class="topbar-tools">
+                <div class="relogio" aria-label="Data e hora atuais">
+                    <span id="hora" class="relogio-hora">--:--:--</span>
+                </div>
+                <button type="button" id="alternar-tema" class="btn btn-icone" aria-label="Alternar tema claro e escuro">🌓</button>
+            </div>
+        </div>
+        <nav class="menu" aria-label="Seções da ferramenta">
+            <ul>
+                <li><a href="#hoje">Hoje</a></li>
+                <li><a href="#anotacoes">Anotações</a></li>
+                <li><a href="#passagem">Passagem de turno</a></li>
+                <li><a href="#mensagens">Mensagens padrão</a></li>
+                <li><a href="#coordenadas">Coordenadas</a></li>
+                <li><a href="#fonetico">Alfabeto fonético</a></li>
+                <li><a href="#codigo-q">Código Q</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo" class="layout">
+
+        <p class="aviso-demo" role="note">
+            <strong>Versão de demonstração.</strong> Todo o conteúdo é fictício. A ferramenta original foi criada por
+            mim na rotina de monitoramento da Technocel e passou a ser usada por colegas da equipe.
+            <a href="#sobre">Saiba mais</a>
+        </p>
+
+        <!-- HOJE -->
+        <section class="painel" id="hoje" aria-labelledby="t-hoje">
+            <h2 id="t-hoje"><span id="saudacao">Olá!</span></h2>
+            <p class="subtitulo" id="data">Carregando a data...</p>
+            <ul class="resumo">
+                <li><strong id="resumo-notas">0</strong> caracteres em anotações</li>
+                <li><strong id="resumo-mensagens">8</strong> mensagens padrão</li>
+                <li><strong>100%</strong> no seu navegador, sem enviar dados</li>
+            </ul>
+        </section>
+
+        <!-- ANOTAÇÕES -->
+        <section class="painel" id="anotacoes" aria-labelledby="t-anotacoes">
+            <h2 id="t-anotacoes">✍️ Anotações</h2>
+            <p class="subtitulo">Tudo é salvo automaticamente neste navegador.</p>
+            <div class="grade-2">
+                <div class="bloco-nota">
+                    <label for="nota-turno">Anotações do turno</label>
+                    <textarea id="nota-turno" data-nota rows="9" placeholder="Registre aqui o que acontece no turno..."></textarea>
+                    <div class="acoes">
+                        <button type="button" class="btn" data-copiar-de="nota-turno">Copiar</button>
+                        <button type="button" class="btn btn-sec" data-baixar="nota-turno">Baixar .txt</button>
+                        <button type="button" class="btn btn-sec" data-limpar="nota-turno">Limpar</button>
+                        <span class="status" data-status-de="nota-turno" role="status" aria-live="polite"></span>
+                    </div>
+                </div>
+                <div class="bloco-nota">
+                    <label for="nota-geral">Anotações gerais</label>
+                    <textarea id="nota-geral" data-nota rows="9" placeholder="Lembretes e informações que valem para qualquer turno..."></textarea>
+                    <div class="acoes">
+                        <button type="button" class="btn" data-copiar-de="nota-geral">Copiar</button>
+                        <button type="button" class="btn btn-sec" data-baixar="nota-geral">Baixar .txt</button>
+                        <button type="button" class="btn btn-sec" data-limpar="nota-geral">Limpar</button>
+                        <span class="status" data-status-de="nota-geral" role="status" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASSAGEM DE TURNO -->
+        <section class="painel" id="passagem" aria-labelledby="t-passagem">
+            <h2 id="t-passagem">📣 Passagem de turno</h2>
+            <p class="subtitulo">Preencha os campos e o texto é montado na hora, pronto para copiar.</p>
+            <div class="grade-2">
+                <form class="formulario" onsubmit="return false">
+                    <div class="campo">
+                        <label for="pt-operador">Operador</label>
+                        <input id="pt-operador" type="text" autocomplete="name" placeholder="Seu nome">
+                    </div>
+                    <div class="campo">
+                        <label for="pt-turno">Turno</label>
+                        <select id="pt-turno">
+                            <option>Manhã</option>
+                            <option>Tarde</option>
+                            <option selected>Noite</option>
+                            <option>Madrugada</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="pt-sistema">Sistema de rastreamento</label>
+                        <select id="pt-sistema">
+                            <option value="a">Sistema A</option>
+                            <option value="b">Sistema B</option>
+                            <option value="c">Sistema C</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="pt-pendencias">Pendências (uma por linha)</label>
+                        <textarea id="pt-pendencias" rows="5" placeholder="Veículo 1234: aguardando retorno do motorista&#10;Veículo 5678: sem sinal desde as 22h"></textarea>
+                    </div>
+                </form>
+                <div class="saida">
+                    <label for="pt-saida">Texto gerado</label>
+                    <textarea id="pt-saida" rows="14" readonly></textarea>
+                    <div class="acoes">
+                        <button type="button" class="btn" data-copiar-de="pt-saida">Copiar texto</button>
+                        <span class="status" data-status-de="pt-saida" role="status" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENSAGENS PADRÃO -->
+        <section class="painel" id="mensagens" aria-labelledby="t-mensagens">
+            <h2 id="t-mensagens">💬 Mensagens padrão</h2>
+            <p class="subtitulo">Textos prontos para ocorrências frequentes. Os campos abaixo preenchem as mensagens.</p>
+            <div class="grade-3">
+                <div class="campo">
+                    <label for="m-veiculo">Veículo</label>
+                    <input id="m-veiculo" type="text" placeholder="Ex.: ABC-1234">
+                </div>
+                <div class="campo">
+                    <label for="m-local">Local</label>
+                    <input id="m-local" type="text" placeholder="Ex.: Km 120 da rodovia">
+                </div>
+                <div class="campo">
+                    <label for="m-horario">Horário</label>
+                    <input id="m-horario" type="time">
+                </div>
+            </div>
+            <div class="campo busca">
+                <label for="m-busca">Buscar mensagem</label>
+                <input id="m-busca" type="search" placeholder="Digite parte do título ou do texto" autocomplete="off">
+                <p class="contagem" id="m-contagem" role="status" aria-live="polite"></p>
+            </div>
+            <div class="cards" id="lista-mensagens"></div>
+        </section>
+
+        <!-- COORDENADAS -->
+        <section class="painel" id="coordenadas" aria-labelledby="t-coordenadas">
+            <h2 id="t-coordenadas">📍 Conversor de coordenadas</h2>
+            <p class="subtitulo">Cole latitude e longitude em qualquer formato com ponto ou vírgula decimal.</p>
+            <div class="grade-2">
+                <div class="campo">
+                    <label for="c-entrada">Coordenadas</label>
+                    <textarea id="c-entrada" rows="3" placeholder="-20,8113 -49,3758"></textarea>
+                    <p class="erro" id="c-erro" role="alert"></p>
+                </div>
+                <div class="campo">
+                    <label for="c-mapa">Formato mapa (latitude, longitude)</label>
+                    <input id="c-mapa" type="text" readonly>
+                    <label for="c-planilha">Formato planilha (vírgula decimal, separado por ponto e vírgula)</label>
+                    <input id="c-planilha" type="text" readonly>
+                    <div class="acoes">
+                        <button type="button" class="btn" data-copiar-de="c-mapa">Copiar mapa</button>
+                        <button type="button" class="btn btn-sec" data-copiar-de="c-planilha">Copiar planilha</button>
+                        <a class="btn btn-sec" id="c-abrir" href="#coordenadas" target="_blank" rel="noopener noreferrer" aria-disabled="true">Abrir no mapa</a>
+                        <span class="status" data-status-de="c-mapa" role="status" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALFABETO FONÉTICO -->
+        <section class="painel" id="fonetico" aria-labelledby="t-fonetico">
+            <h2 id="t-fonetico">🔤 Alfabeto fonético</h2>
+            <p class="subtitulo">Digite uma placa ou palavra e veja como soletrar. Alfabeto fonético da OTAN.</p>
+            <div class="campo">
+                <label for="f-entrada">Texto para soletrar</label>
+                <input id="f-entrada" type="text" placeholder="Ex.: ABC1D23" autocomplete="off">
+            </div>
+            <p class="soletrado" id="f-saida" aria-live="polite"></p>
+            <div class="acoes">
+                <button type="button" class="btn" data-copiar-de="f-saida">Copiar soletração</button>
+                <span class="status" data-status-de="f-saida" role="status" aria-live="polite"></span>
+            </div>
+            <ul class="grade-alfabeto" id="f-tabela" aria-label="Tabela do alfabeto fonético"></ul>
+        </section>
+
+        <!-- CÓDIGO Q -->
+        <section class="painel" id="codigo-q" aria-labelledby="t-codigo-q">
+            <h2 id="t-codigo-q">📻 Código Q</h2>
+            <p class="subtitulo">Abreviações mais usadas na comunicação por rádio.</p>
+            <div class="campo busca">
+                <label for="q-busca">Buscar código ou significado</label>
+                <input id="q-busca" type="search" placeholder="Ex.: QTH ou frequência" autocomplete="off">
+                <p class="contagem" id="q-contagem" role="status" aria-live="polite"></p>
+            </div>
+            <div class="tabela-rolavel">
+                <table>
+                    <caption class="sr-only">Códigos Q e seus significados</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="q-corpo"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="painel" id="sobre" aria-labelledby="t-sobre">
+            <h2 id="t-sobre">ℹ️ Sobre este projeto</h2>
+            <p>Esta ferramenta nasceu na minha rotina de operador de monitoramento na Technocel Gerenciamento de Risco.
+                Eu precisava de um lugar único para anotar, montar a passagem de turno, copiar mensagens padrão e
+                converter coordenadas sem perder tempo. Colegas da equipe começaram a usar, e ela virou um instrumento
+                de trabalho.</p>
+            <p>Esta é uma <strong>versão de demonstração, reescrita do zero</strong>, com conteúdo fictício e sem
+                nenhum dado, manual ou procedimento da empresa.</p>
+            <ul>
+                <li>HTML, CSS e JavaScript puros, sem bibliotecas.</li>
+                <li>Funciona offline depois de carregada e guarda os dados só no seu navegador (<code>localStorage</code>).</li>
+                <li>Acessível por teclado, com foco visível e avisos para leitores de tela.</li>
+                <li>Responsiva, com tema claro e escuro.</li>
+            </ul>
+            <p class="links">
+                <a class="btn" href="https://github.com/HugoHendrix/bloco-de-notas-demo" target="_blank" rel="noopener noreferrer">Ver o código</a>
+                <a class="btn btn-sec" href="https://hugohendrix.github.io/portfolio-hugo/" target="_blank" rel="noopener noreferrer">Meu portfólio</a>
+                <a class="btn btn-sec" href="https://www.linkedin.com/in/hugohendrix/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Feito por Hugo Hendrix. Dados fictícios, apenas para demonstração.</p>
+    </footer>
+
+    <button type="button" id="voltar-topo" class="topo" aria-label="Voltar ao topo" hidden>↑</button>
+</body>
+
+</html>

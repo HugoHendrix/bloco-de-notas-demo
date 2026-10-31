@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hugohendrix.github.io/bloco-de-notas-demo/sitemap.xml
